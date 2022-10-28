@@ -9,7 +9,7 @@ var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 // const MESSAGE = 'Too many matches found. Please enter a more specific name.';
 // const ERROR_MESSAGE = 'Oops, there is no country with that name';
-const inputBox = document.querySelector('#search-box');
+const inputBox = document.querySelector('input#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 // const searchBox = {
@@ -28,6 +28,7 @@ inputBox.addEventListener(
         cleanHtml();
         if (valueTrim !== '') {
             fetchCountries(valueTrim).then(foundData => {
+                
               if (foundData.length > 10) {
                 Notiflix.Notify.info(
                   'Too many matches found. Please enter a more specific name.'

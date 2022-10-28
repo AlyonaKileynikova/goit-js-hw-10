@@ -1,5 +1,7 @@
 // const URL = 'https://restcountries.com';
 // const FILTER_COUNTRIES = 'name, capital, population, flags, languages';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 
 export function fetchCountries(name) {
   return fetch(
@@ -12,10 +14,9 @@ export function fetchCountries(name) {
       return response.json();
     })
     .catch(error => {
-      console.log(error);
+    //   console.log(error);
       Notiflix.Notify.failure(
-        'Oops, there is no country with that name',
-        emptyMarkup()
+        'Oops, there is no country with that name'
       );
     });
 }
